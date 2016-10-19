@@ -8,7 +8,7 @@
 
 import UIKit
 let reuseIdentifier = "numberBrick"
-var numberPic = 1
+
 
 extension UIImageView{
     func blurImage()
@@ -24,32 +24,62 @@ extension UIImageView{
 
 class ViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate {
     
+    @IBOutlet weak var lableNumber: UILabel!
     @IBOutlet weak var lableTheme: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var arrayNumber = [Int]()
     
     var arr = (1...150)
+    var arrayNumPic = [Int]()
     var segue = 0
+    var numberPic = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        arrayNumPic += 1...3
+        print(arrayNumPic)
+        numberPic = arrayNumPic[Int(arc4random_uniform(UInt32(arrayNumPic.count)))]
+        arrayNumPic.remove(at: numberPic - 1)
+        print(arrayNumPic)
         arrayNumber += 1...150
         let bgImage = UIImageView();
-        bgImage.image = UIImage(named: "1_\(numberPic).jpg");
+        bgImage.image = UIImage(named: "\(segue + 1)_\(numberPic).jpg");
         bgImage.contentMode = .scaleToFill
         self.collectionView?.backgroundView = bgImage
-        lableTheme.text = "Тема: " + arrayOfTheme[segue]
-
+        //lableTheme.text = "Тема: " + arrayOfTheme[segue]
+        self.title = "Тема: " + arrayOfTheme[segue]
+        lableNumber.text = String(segue + 1)+String(numberPic)
+        
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayNumber.count
     }
-    @IBAction func buttonNextClick(_ sender: UIButton) {
-        numberPic += 1
+    @IBAction func buttonNextClick(_ sender: UIBarButtonItem) {
+        if arrayNumPic.count != 0 {
+            print(arrayNumPic)
+            numberPic = arrayNumPic[Int(arc4random_uniform(UInt32(arrayNumPic.count)))]
+            var i = 0
+            for item in arrayNumPic {
+                if item == numberPic{
+                    arrayNumPic.remove(at: i)
+                }
+                i += 1
+            }
+            print(arrayNumPic)
+        } else {
+            let alertController = UIAlertController(title: "Все", message:
+                "Картинки Закончились", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Выход На Главный Экран", style: UIAlertActionStyle.default,handler: {
+                action in self.navigationController?.popViewController(animated: true)
+            }))
+            self.present(alertController, animated: true, completion: nil)
+        }
         let bgImage = UIImageView();
-        bgImage.image = UIImage(named: "1_\(numberPic).jpg");
+        bgImage.image = UIImage(named: "\(segue + 1)_\(numberPic).jpg");
         bgImage.contentMode = .scaleToFill
         self.collectionView?.backgroundView = bgImage
+        lableNumber.text = String(segue + 1)+String(numberPic)
         collectionView.reloadData()
     }
     

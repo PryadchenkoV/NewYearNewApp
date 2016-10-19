@@ -40,6 +40,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         segueString = indexPath.row
+        tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: kSegueFromMainToCollection, sender: self)
     }
     
