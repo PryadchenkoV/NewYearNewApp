@@ -29,6 +29,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
     var arrayNumber = [Int]()
     
     var arr = (1...150)
+    var segue = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,6 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         bgImage.image = UIImage(named: "1_\(numberPic).jpg");
         bgImage.contentMode = .scaleToFill
         self.collectionView?.backgroundView = bgImage
-        var segue = 0
         lableTheme.text = "Тема: " + arrayOfTheme[segue]
 
     }

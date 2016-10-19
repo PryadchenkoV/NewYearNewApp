@@ -74,6 +74,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="AJk-iF-Rhj" id="npD-qi-7Q7"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="segueMainToView" action="showViewController:sender:" id="6mf-C0-AWQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SYc-vx-HaA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,7 +135,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="gDQ-58-wfp"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тема: Советские Фильмы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W28-6L-FYP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тема: Советские Фильмы" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W28-6L-FYP">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,9 +153,9 @@
                             <constraint firstItem="Sbs-BM-mO3" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="CQi-h8-Qol"/>
                             <constraint firstItem="RfD-4i-GjF" firstAttribute="top" secondItem="W28-6L-FYP" secondAttribute="bottom" constant="8" id="EEx-ex-gKN"/>
                             <constraint firstItem="RfD-4i-GjF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-3" id="F7L-dW-OOj"/>
-                            <constraint firstItem="W28-6L-FYP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="69" id="IRf-Uj-W0m"/>
+                            <constraint firstItem="W28-6L-FYP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IRf-Uj-W0m"/>
                             <constraint firstItem="W28-6L-FYP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="19" id="X75-JG-AZ8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="W28-6L-FYP" secondAttribute="trailing" constant="69" id="dqd-3W-929"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W28-6L-FYP" secondAttribute="trailing" id="dqd-3W-929"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sbs-BM-mO3" secondAttribute="trailing" constant="99" id="rt1-Gh-vKa"/>
                             <constraint firstAttribute="trailing" secondItem="RfD-4i-GjF" secondAttribute="trailing" constant="-2" id="v58-I7-DPN"/>
                             <constraint firstItem="Sbs-BM-mO3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="99" id="xa8-mc-nJr"/>

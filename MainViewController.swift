@@ -8,13 +8,16 @@
 
 import UIKit
 
-public let arrayOfTheme = ["Советские Фильмы","Известные Картины"]
+public let arrayOfTheme = ["Советские Фильмы","Известные Картины",""]
+public let kSegueFromMainToCollection = "segueMainToView"
 let kLableOfTableViewCellForMainScreen = "themeCell"
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var segueString = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,5 +36,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.lableTableCell.text = arrayOfTheme[indexPath.row]
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        segueString = indexPath.row
+        self.performSegue(withIdentifier: kSegueFromMainToCollection, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let collectionViewController = segue.destination as! ViewController
+        collectionViewController.segue = segueString
     }
 }
