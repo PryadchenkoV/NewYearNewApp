@@ -8,7 +8,7 @@
 
 import UIKit
 
-public let arrayOfTheme = ["Советские Фильмы"]
+public let arrayOfTheme = ["Советские Фильмы","Известные Картины"]
 let kLableOfTableViewCellForMainScreen = "themeCell"
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
