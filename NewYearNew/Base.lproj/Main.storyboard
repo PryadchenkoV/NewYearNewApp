@@ -16,17 +16,17 @@
                         <viewControllerLayoutGuide type="bottom" id="J1U-yO-9a0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="r4O-Sd-FQM">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AJk-iF-Rhj">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="themeCell" id="BJc-Az-8Ti" customClass="MainViewTableViewCell" customModule="NewYearNew" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="667" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BJc-Az-8Ti" id="DMp-Ul-nrw">
-                                            <frame key="frameInset" width="667" height="43"/>
+                                            <frame key="frameInset" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HkY-mz-vdP">
@@ -84,7 +84,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тема: Советские Фильмы" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W28-6L-FYP">
@@ -98,24 +98,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RfD-4i-GjF">
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="570" id="0as-7m-l2U"/>
+                                    <constraint firstAttribute="height" constant="930" id="0as-7m-l2U"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FaE-eL-OYu">
-                                    <size key="itemSize" width="38" height="38"/>
+                                    <size key="itemSize" width="77" height="62"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="numberBrick" id="SG4-TL-tdc" customClass="MyCollectionViewCell" customModule="NewYearNew" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="77" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="38" height="38"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WR-pj-APJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WR-pj-APJ">
+                                                    <frame key="frameInset" minY="7" width="77" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -125,9 +127,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="7WR-pj-APJ" firstAttribute="leading" secondItem="SG4-TL-tdc" secondAttribute="leading" id="8hR-fX-hUh"/>
+                                            <constraint firstItem="7WR-pj-APJ" firstAttribute="centerX" secondItem="SG4-TL-tdc" secondAttribute="centerX" id="BLm-X6-GnS"/>
                                             <constraint firstAttribute="trailing" secondItem="7WR-pj-APJ" secondAttribute="trailing" id="ckV-hl-UwI"/>
-                                            <constraint firstItem="7WR-pj-APJ" firstAttribute="top" secondItem="SG4-TL-tdc" secondAttribute="top" constant="7" id="g57-kN-wXw"/>
-                                            <constraint firstAttribute="bottom" secondItem="7WR-pj-APJ" secondAttribute="bottom" constant="7" id="gzg-wH-CvH"/>
+                                            <constraint firstItem="7WR-pj-APJ" firstAttribute="centerY" secondItem="SG4-TL-tdc" secondAttribute="centerY" id="g1A-tg-zot"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="textLable" destination="7WR-pj-APJ" id="YYK-wu-VT6"/>
@@ -137,6 +139,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Con-zQ-LJm"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="gDQ-58-wfp"/>
+                                    <outletCollection property="gestureRecognizers" destination="ZeS-37-gpD" appends="YES" id="9TR-xF-uYx"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -149,7 +152,7 @@
                             <constraint firstAttribute="trailing" secondItem="ke0-4J-qLy" secondAttribute="trailing" constant="8" id="PKx-Fb-vkK"/>
                             <constraint firstItem="W28-6L-FYP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="19" id="X75-JG-AZ8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W28-6L-FYP" secondAttribute="trailing" id="dqd-3W-929"/>
-                            <constraint firstAttribute="trailing" secondItem="RfD-4i-GjF" secondAttribute="trailing" constant="-3" id="v58-I7-DPN"/>
+                            <constraint firstAttribute="trailing" secondItem="RfD-4i-GjF" secondAttribute="trailing" id="v58-I7-DPN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ddA-62-oPu">
@@ -163,11 +166,13 @@
                         <outlet property="collectionView" destination="RfD-4i-GjF" id="nLF-c8-LgX"/>
                         <outlet property="lableNumber" destination="ke0-4J-qLy" id="MtU-tR-Vr7"/>
                         <outlet property="lableTheme" destination="W28-6L-FYP" id="3pq-rp-FbR"/>
+                        <outlet property="pinchGesture" destination="ZeS-37-gpD" id="ZcY-2m-45e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="ZeS-37-gpD"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1075.78125" y="137.109375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WrH-Va-yf2">
