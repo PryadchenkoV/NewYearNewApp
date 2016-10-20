@@ -116,6 +116,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="77" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plitka.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-zf-8DN"/>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WR-pj-APJ">
                                                     <frame key="frameInset" minY="7" width="77" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -128,10 +129,15 @@
                                         <constraints>
                                             <constraint firstItem="7WR-pj-APJ" firstAttribute="leading" secondItem="SG4-TL-tdc" secondAttribute="leading" id="8hR-fX-hUh"/>
                                             <constraint firstItem="7WR-pj-APJ" firstAttribute="centerX" secondItem="SG4-TL-tdc" secondAttribute="centerX" id="BLm-X6-GnS"/>
+                                            <constraint firstAttribute="bottom" secondItem="CnX-zf-8DN" secondAttribute="bottom" id="Kv7-mT-qru"/>
+                                            <constraint firstItem="CnX-zf-8DN" firstAttribute="top" secondItem="SG4-TL-tdc" secondAttribute="top" id="Qou-qC-Teu"/>
                                             <constraint firstAttribute="trailing" secondItem="7WR-pj-APJ" secondAttribute="trailing" id="ckV-hl-UwI"/>
                                             <constraint firstItem="7WR-pj-APJ" firstAttribute="centerY" secondItem="SG4-TL-tdc" secondAttribute="centerY" id="g1A-tg-zot"/>
+                                            <constraint firstAttribute="trailing" secondItem="CnX-zf-8DN" secondAttribute="trailing" id="tkZ-pT-KQN"/>
+                                            <constraint firstItem="CnX-zf-8DN" firstAttribute="leading" secondItem="SG4-TL-tdc" secondAttribute="leading" id="zGy-8d-nt2"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="imageView" destination="CnX-zf-8DN" id="Z4L-R2-ATm"/>
                                             <outlet property="textLable" destination="7WR-pj-APJ" id="YYK-wu-VT6"/>
                                         </connections>
                                     </collectionViewCell>
@@ -142,17 +148,54 @@
                                     <outletCollection property="gestureRecognizers" destination="ZeS-37-gpD" appends="YES" id="9TR-xF-uYx"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DId-e3-MXp">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="241" id="GPF-wq-zXG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4r-E9-nNz">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wT-sG-PWR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="241" id="9gU-4j-B0R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2e-b2-1mu">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ke0-4J-qLy" secondAttribute="bottom" id="4Eg-II-3YQ"/>
+                            <constraint firstItem="DId-e3-MXp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9Ce-1Z-jXx"/>
                             <constraint firstItem="RfD-4i-GjF" firstAttribute="top" secondItem="W28-6L-FYP" secondAttribute="bottom" constant="25" id="EEx-ex-gKN"/>
                             <constraint firstItem="RfD-4i-GjF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-2" id="F7L-dW-OOj"/>
                             <constraint firstItem="W28-6L-FYP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IRf-Uj-W0m"/>
+                            <constraint firstItem="a4r-E9-nNz" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="NKX-tF-O1y"/>
                             <constraint firstAttribute="trailing" secondItem="ke0-4J-qLy" secondAttribute="trailing" constant="8" id="PKx-Fb-vkK"/>
+                            <constraint firstItem="6wT-sG-PWR" firstAttribute="leading" secondItem="a4r-E9-nNz" secondAttribute="trailing" constant="8" id="Pj7-71-SgD"/>
+                            <constraint firstItem="M2e-b2-1mu" firstAttribute="centerY" secondItem="6wT-sG-PWR" secondAttribute="centerY" id="RUX-dT-h4D"/>
                             <constraint firstItem="W28-6L-FYP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="19" id="X75-JG-AZ8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W28-6L-FYP" secondAttribute="trailing" id="dqd-3W-929"/>
+                            <constraint firstItem="M2e-b2-1mu" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="fGw-dM-ZTL"/>
+                            <constraint firstItem="DId-e3-MXp" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="fal-UY-bin"/>
+                            <constraint firstItem="6wT-sG-PWR" firstAttribute="centerY" secondItem="DId-e3-MXp" secondAttribute="centerY" id="ggp-Ct-Af0"/>
+                            <constraint firstItem="6wT-sG-PWR" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="imx-8b-1aK"/>
+                            <constraint firstItem="a4r-E9-nNz" firstAttribute="leading" secondItem="DId-e3-MXp" secondAttribute="trailing" constant="8" id="q3n-Eg-IsH"/>
+                            <constraint firstItem="a4r-E9-nNz" firstAttribute="centerY" secondItem="DId-e3-MXp" secondAttribute="centerY" id="u1p-EQ-DOK"/>
                             <constraint firstAttribute="trailing" secondItem="RfD-4i-GjF" secondAttribute="trailing" id="v58-I7-DPN"/>
+                            <constraint firstItem="M2e-b2-1mu" firstAttribute="leading" secondItem="6wT-sG-PWR" secondAttribute="trailing" constant="8" id="wWN-Wn-avO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ddA-62-oPu">
@@ -165,6 +208,10 @@
                     <connections>
                         <outlet property="collectionView" destination="RfD-4i-GjF" id="nLF-c8-LgX"/>
                         <outlet property="lableNumber" destination="ke0-4J-qLy" id="MtU-tR-Vr7"/>
+                        <outlet property="lableTeamOne" destination="DId-e3-MXp" id="vxl-od-FgX"/>
+                        <outlet property="lableTeamOnePoints" destination="a4r-E9-nNz" id="r0a-lB-Lyo"/>
+                        <outlet property="lableTeamTwo" destination="6wT-sG-PWR" id="VTn-M1-OxO"/>
+                        <outlet property="lableTeamTwoPoints" destination="M2e-b2-1mu" id="Pak-Mj-9pm"/>
                         <outlet property="lableTheme" destination="W28-6L-FYP" id="3pq-rp-FbR"/>
                         <outlet property="pinchGesture" destination="ZeS-37-gpD" id="ZcY-2m-45e"/>
                     </connections>
@@ -193,4 +240,7 @@
             <point key="canvasLocation" x="-847.20000000000005" y="136.28185907046478"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plitka.jpg" width="1024" height="904"/>
+    </resources>
 </document>

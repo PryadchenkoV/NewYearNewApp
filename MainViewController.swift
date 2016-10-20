@@ -11,9 +11,10 @@ import UIKit
 public let arrayOfTheme = ["Советские Фильмы","Известные Картины",""]
 public let kSegueFromMainToCollection = "segueMainToView"
 let kLableOfTableViewCellForMainScreen = "themeCell"
+var teamOneName = ""
+var teamTwoName = ""
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,6 +25,30 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
 
+        if teamOneName == "" {
+            let alertView = UIAlertController(title: "Название команд", message:  "Введите название команд", preferredStyle: .alert)
+            alertView.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = "Название первой команды"
+                textField.autocapitalizationType = .words
+            })
+            alertView.addTextField(configurationHandler: {(textField) in
+                textField.placeholder = "Название второй команды"
+                textField.autocapitalizationType = .words
+            })
+            let cancelAction = UIAlertAction(title: "По умолчанию", style: .cancel) { (_) in teamTwoName = "Команда2"
+            teamOneName = "Команда1"}
+            let okAction = UIAlertAction(title: "Подтвердить", style:  .default, handler: { (_) in
+                let firstTextField = alertView.textFields![0] as UITextField
+                let secondTextField = alertView.textFields![1] as UITextField
+                teamOneName = firstTextField.text!
+                teamTwoName = secondTextField.text!
+                print(teamOneName)
+                print(teamTwoName)
+            })
+            alertView.addAction(okAction)
+            alertView.addAction(cancelAction)
+            self.present(alertView, animated: true, completion: nil)
+        }
         // Do any additional setup after loading the view.
     }
     

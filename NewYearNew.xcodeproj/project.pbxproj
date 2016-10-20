@@ -17,6 +17,7 @@
 		E220B0941DA2991B00B31295 /* 1_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E220B0931DA2991B00B31295 /* 1_1.jpg */; };
 		E220B0961DA29A3400B31295 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E220B0951DA29A3400B31295 /* MyCollectionViewCell.swift */; };
 		E220B0981DA2B3A700B31295 /* 1_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E220B0971DA2B3A700B31295 /* 1_2.jpg */; };
+		E27807121DB92E47009E34CC /* plitka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E27807111DB92E47009E34CC /* plitka.jpg */; };
 		E2C2CF991DB7C513008AA8A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C2CF981DB7C513008AA8A5 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		E220B0931DA2991B00B31295 /* 1_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1_1.jpg; path = ../../../../Downloads/1_1.jpg; sourceTree = "<group>"; };
 		E220B0951DA29A3400B31295 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E220B0971DA2B3A700B31295 /* 1_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1_2.jpg; path = ../../../../Downloads/1_2.jpg; sourceTree = "<group>"; };
+		E27807111DB92E47009E34CC /* plitka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = plitka.jpg; path = ../../../../Downloads/plitka.jpg; sourceTree = "<group>"; };
 		E2C2CF981DB7C513008AA8A5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +78,7 @@
 				E220B08A1DA298F400B31295 /* LaunchScreen.storyboard */,
 				E220B08D1DA298F400B31295 /* Info.plist */,
 				E208D1041DB7F374009D4F62 /* MainViewTableViewCell.swift */,
+				E27807111DB92E47009E34CC /* plitka.jpg */,
 			);
 			path = NewYearNew;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				E220B0941DA2991B00B31295 /* 1_1.jpg in Resources */,
 				E220B0981DA2B3A700B31295 /* 1_2.jpg in Resources */,
 				E220B0891DA298F400B31295 /* Assets.xcassets in Resources */,
+				E27807121DB92E47009E34CC /* plitka.jpg in Resources */,
 				E220B0871DA298F400B31295 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
