@@ -19,6 +19,7 @@
 		E220B0981DA2B3A700B31295 /* 1_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E220B0971DA2B3A700B31295 /* 1_2.jpg */; };
 		E27807121DB92E47009E34CC /* plitka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E27807111DB92E47009E34CC /* plitka.jpg */; };
 		E2C2CF991DB7C513008AA8A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C2CF981DB7C513008AA8A5 /* MainViewController.swift */; };
+		E2C3B1651DBD01D2004F4874 /* plitka1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2C3B1641DBD01D2004F4874 /* plitka1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E220B0971DA2B3A700B31295 /* 1_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1_2.jpg; path = ../../../../Downloads/1_2.jpg; sourceTree = "<group>"; };
 		E27807111DB92E47009E34CC /* plitka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = plitka.jpg; path = ../../../../Downloads/plitka.jpg; sourceTree = "<group>"; };
 		E2C2CF981DB7C513008AA8A5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
+		E2C3B1641DBD01D2004F4874 /* plitka1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = plitka1.jpg; path = ../../../../Downloads/plitka1.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				E220B08D1DA298F400B31295 /* Info.plist */,
 				E208D1041DB7F374009D4F62 /* MainViewTableViewCell.swift */,
 				E27807111DB92E47009E34CC /* plitka.jpg */,
+				E2C3B1641DBD01D2004F4874 /* plitka1.jpg */,
 			);
 			path = NewYearNew;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E208D1071DB81439009D4F62 /* 1_3.jpg in Resources */,
+				E2C3B1651DBD01D2004F4874 /* plitka1.jpg in Resources */,
 				E220B08C1DA298F400B31295 /* LaunchScreen.storyboard in Resources */,
 				E220B0941DA2991B00B31295 /* 1_1.jpg in Resources */,
 				E220B0981DA2B3A700B31295 /* 1_2.jpg in Resources */,

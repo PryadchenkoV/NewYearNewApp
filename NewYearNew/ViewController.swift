@@ -22,8 +22,10 @@ extension UIImageView{
     }
 }
 
-class ViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate, UITabBarDelegate {
     
+    @IBOutlet weak var barButtonNextPic: UIBarButtonItem!
+    @IBOutlet weak var imageViewUnderCollection: UIImageView!
     @IBOutlet weak var lableTeamTwoPoints: UILabel!
     @IBOutlet weak var lableTeamTwo: UILabel!
     @IBOutlet weak var lableTeamOnePoints: UILabel!
@@ -36,16 +38,19 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
     
     var sizeChose = 3
     
+    var arrayIndex = [IndexPath]()
+    var points = 0
     var arr = (1...150)
     var arrayNumPic = [Int]()
     var segue = 0
+    var chose = 0
     var numberPic = 1
     let pinchRec = UIPinchGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pinchRec.addTarget(self, action: "pinchedView:")
-
+        
         lableTeamOne.text = teamOneName
         lableTeamTwo.text = teamTwoName
         randomPlayer()
@@ -56,45 +61,48 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         arrayNumPic.remove(at: numberPic - 1)
         print(arrayNumPic)
         arrayNumber += 1...150
-        let bgImage = UIImageView();
-        bgImage.image = UIImage(named: "\(segue + 1)_\(numberPic).jpg");
+        let bgImage = UIImageView()
+        let imageBackground = UIImage(named: "\(segue + 1)_\(numberPic).jpg")
+        bgImage.image = imageBackground
         bgImage.contentMode = .scaleToFill
         self.collectionView?.backgroundView = bgImage
+        self.imageViewUnderCollection.image = imageBackground
         //lableTheme.text = "Тема: " + arrayOfTheme[segue]
         self.title = "Тема: " + arrayOfTheme[segue]
         lableNumber.text = String(segue + 1)+String(numberPic)
-        navigationController?.navigationBar.topItem?.title = "Назад"
         collectionView.reloadData()
         
     }
     
+    func longPressNextPic() {
+        print("H")
+    }
+    
+    func makeTeamTextDiffer( whosTurn: UILabel,whosTurnPoints: UILabel, whoWait: UILabel, whoWaitPoints: UILabel) {
+        whosTurn.textColor = UIColor.black
+        whosTurn.font = whosTurn.font.withSize(20)
+        whoWait.textColor = UIColor.black
+        whoWait.font = whoWait.font.withSize(20)
+        whoWait.alpha = 0.5
+        whoWaitPoints.alpha = 0.5
+        whosTurn.alpha = 0.5
+        whosTurnPoints.alpha = 0.5
+        whosTurn.alpha = 1
+        whosTurnPoints.alpha = 1
+        whoWait.alpha = 0.5
+        whoWaitPoints.alpha = 0.5
+        whosTurn.textColor = UIColor.red
+        whosTurn.font = whosTurn.font.withSize(25)
+        whosTurnPoints.font = whosTurnPoints.font.withSize(25)
+    }
+    
+    
     func randomPlayer() {
         let randomForBegin = drand48()
-        lableTeamOne.textColor = UIColor.black
-        lableTeamOne.font = lableTeamOne.font.withSize(20)
-        lableTeamTwo.textColor = UIColor.black
-        lableTeamTwo.font = lableTeamOne.font.withSize(20)
-        lableTeamTwo.alpha = 0.5
-        lableTeamTwoPoints.alpha = 0.5
-        lableTeamOne.alpha = 0.5
-        lableTeamOnePoints.alpha = 0.5
         if randomForBegin >= 0.5 {
-            lableTeamOne.alpha = 1
-            lableTeamOnePoints.alpha = 1
-            lableTeamTwo.alpha = 0.5
-            lableTeamTwoPoints.alpha = 0.5
-            lableTeamOne.textColor = UIColor.red
-            lableTeamOne.font = lableTeamOne.font.withSize(25)
-            lableTeamOnePoints.font = lableTeamOnePoints.font.withSize(25)
+            makeTeamTextDiffer(whosTurn: lableTeamOne, whosTurnPoints: lableTeamOnePoints, whoWait: lableTeamTwo, whoWaitPoints: lableTeamTwoPoints)
         } else {
-            lableTeamOne.alpha = 0.5
-            lableTeamOnePoints.alpha = 0.5
-            lableTeamTwo.alpha = 1
-            lableTeamTwoPoints.alpha = 1
-            lableTeamTwo.textColor = UIColor.red
-            lableTeamTwo.font = lableTeamTwo.font.withSize(25)
-            lableTeamTwoPoints.font = lableTeamTwoPoints.font.withSize(25)
-
+            makeTeamTextDiffer(whosTurn: lableTeamTwo, whosTurnPoints: lableTeamTwoPoints, whoWait: lableTeamOne, whoWaitPoints: lableTeamOnePoints)
         }
     }
     
@@ -108,16 +116,21 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         let oneAction = UIAlertAction(title: "5x5", style: .default) { (_) in self.arrayNumber = []
             self.arrayNumber += 1...25
             self.changeSize(caseChoose: 1)
+            self.points = 25
+            self.chose = 1
             self.collectionView.reloadData()
-            
         }
         let twoAction = UIAlertAction(title: "10x10", style: .default) { (_) in self.arrayNumber = []
             self.arrayNumber += 1...100
             self.changeSize(caseChoose: 2)
+            self.points = 100
+            self.chose = 2
             self.collectionView.reloadData()}
         let threeAction = UIAlertAction(title: "10x15", style: .default) { (_) in self.arrayNumber = []
             self.arrayNumber += 1...150
             self.changeSize(caseChoose: 3)
+            self.points = 150
+            self.chose = 3
             self.collectionView.reloadData()}
         alertController.addAction(oneAction)
         alertController.addAction(twoAction)
@@ -125,37 +138,103 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func showAlertWhoWinRound() {
+        let alertController = UIAlertController(title: "Победитель Раунда", message: "Выберите команду, которая угадала картинку", preferredStyle: .alert)
+        let firstTeam = UIAlertAction(title: teamOneName, style: .default, handler: {(_) in
+            self.lableTeamOnePoints.text = String(Int(self.lableTeamOnePoints.text!)! + self.points)
+            switch self.chose {
+            case 1: self.points = 25
+            case 2: self.points = 100
+            case 3: self.points = 150
+            default: break
+            }
+        })
+        let secondTeam = UIAlertAction(title: teamTwoName, style: .default, handler: { (_) in
+            self.lableTeamTwoPoints.text = String(Int(self.lableTeamTwoPoints.text!)! + self.points)
+            switch self.chose {
+            case 1: self.points = 25
+            case 2: self.points = 100
+            case 3: self.points = 150
+            default: break
+            }
+            
+        })
+        alertController.addAction(firstTeam)
+        alertController.addAction(secondTeam)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func alertWinner() {
+        var winnerTeam = ""
+        if Int(lableTeamTwoPoints.text!)! > Int(lableTeamOnePoints.text!)! {
+            winnerTeam = lableTeamTwo.text!
+        } else if Int(lableTeamTwoPoints.text!)! < Int(lableTeamOnePoints.text!)! {
+            winnerTeam = lableTeamOne.text!
+        } else {
+            winnerTeam = "Дружба:)"
+        }
+        let alertController = UIAlertController(title: "Победитель: " + winnerTeam, message:
+            "Ура!!!", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Выход На Главный Экран", style: UIAlertActionStyle.default,handler: {(_) in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alertController, animated: false, completion: nil)
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayNumber.count
     }
+    
     @IBAction func buttonNextClick(_ sender: UIBarButtonItem) {
         //collectionView.deleteItems(at: collectionView.indexPathsForSelectedItems!)
-        if arrayNumPic.count != 0 {
-            print(arrayNumPic)
-            numberPic = arrayNumPic[Int(arc4random_uniform(UInt32(arrayNumPic.count)))]
-            var i = 0
-            for item in arrayNumPic {
-                if item == numberPic{
-                    arrayNumPic.remove(at: i)
-                }
-                i += 1
-            }
-            randomPlayer()
-            print(arrayNumPic)
+        
+        
+        if collectionView.alpha == 1 {
+            collectionView.alpha = 0
         } else {
-            let alertController = UIAlertController(title: "Все", message:
-                "Картинки Закончились", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Выход На Главный Экран", style: UIAlertActionStyle.default,handler: {
-                action in self.navigationController?.popViewController(animated: true)
-            }))
-            self.present(alertController, animated: true, completion: nil)
+            if arrayNumPic.count != 0 {
+                showAlertWhoWinRound()
+                print(arrayNumPic)
+                numberPic = arrayNumPic[Int(arc4random_uniform(UInt32(arrayNumPic.count)))]
+                var i = 0
+                for item in arrayNumPic {
+                    if item == numberPic{
+                        arrayNumPic.remove(at: i)
+                    }
+                    i += 1
+                }
+                randomPlayer()
+                print(arrayNumPic)
+            } else {
+                let alertController = UIAlertController(title: "Победитель Раунда", message: "Выберите команду, которая угадала картинку", preferredStyle: .alert)
+                let firstTeam = UIAlertAction(title: teamOneName, style: .default, handler: {(_) in
+                    self.lableTeamOnePoints.text = String(Int(self.lableTeamOnePoints.text!)! + self.points)
+                    self.alertWinner()
+                })
+                let secondTeam = UIAlertAction(title: teamTwoName, style: .default, handler: { (_) in
+                    self.lableTeamTwoPoints.text = String(Int(self.lableTeamTwoPoints.text!)! + self.points)
+                    self.alertWinner()
+                })
+                alertController.addAction(firstTeam)
+                alertController.addAction(secondTeam)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            let bgImage = UIImageView();
+            bgImage.image = UIImage(named: "\(segue + 1)_\(numberPic).jpg");
+            bgImage.contentMode = .scaleToFill
+            self.collectionView?.backgroundView = bgImage
+            self.imageViewUnderCollection.image = bgImage.image
+            lableNumber.text = String(segue + 1) + String(numberPic)
+            collectionView.alpha = 1
+            collectionView.reloadData()
+            guard arrayIndex.count == 0 else {
+                collectionView.reloadItems(at: arrayIndex)
+                arrayIndex.removeAll()
+                return
+            }
+            
         }
-        let bgImage = UIImageView();
-        bgImage.image = UIImage(named: "\(segue + 1)_\(numberPic).jpg");
-        bgImage.contentMode = .scaleToFill
-        self.collectionView?.backgroundView = bgImage
-        lableNumber.text = String(segue + 1) + String(numberPic)
-        collectionView.reloadData()
     }
 
     func changeSize(caseChoose: Int){
@@ -202,7 +281,21 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        points -= 1
+        print(points)
         collectionView.cellForItem(at: indexPath)?.alpha = 0
+        if indexPath == [0,45] && arrayNumber.count == 100 {
+            arrayIndex.append(indexPath)
+        }
+        else if indexPath == [0,82] && arrayNumber.count == 150 {
+            arrayIndex.append(indexPath)
+        }
+        if lableTeamOne.alpha == 1 {
+            makeTeamTextDiffer(whosTurn: lableTeamTwo, whosTurnPoints: lableTeamTwoPoints, whoWait: lableTeamOne, whoWaitPoints: lableTeamOnePoints)
+        } else {
+            makeTeamTextDiffer(whosTurn: lableTeamOne, whosTurnPoints: lableTeamOnePoints, whoWait: lableTeamTwo , whoWaitPoints: lableTeamTwoPoints)
+        }
+
     }
     
 }

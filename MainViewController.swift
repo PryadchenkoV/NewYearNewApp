@@ -24,7 +24,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
+        self.title = "Главный экран"
         if teamOneName == "" {
             let alertView = UIAlertController(title: "Название команд", message:  "Введите название команд", preferredStyle: .alert)
             alertView.addTextField(configurationHandler: { (textField) in

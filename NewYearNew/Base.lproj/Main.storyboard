@@ -50,8 +50,8 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите тему:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZX-7A-UuA">
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -97,6 +97,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nQV-cE-ljs"/>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RfD-4i-GjF">
                                 <gestureRecognizers/>
                                 <constraints>
@@ -116,11 +117,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="77" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plitka.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-zf-8DN"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plitka1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="CnX-zf-8DN"/>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WR-pj-APJ">
                                                     <frame key="frameInset" minY="7" width="77" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -178,8 +179,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ke0-4J-qLy" secondAttribute="bottom" id="4Eg-II-3YQ"/>
+                            <constraint firstItem="RfD-4i-GjF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="85V-w4-knU"/>
                             <constraint firstItem="DId-e3-MXp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9Ce-1Z-jXx"/>
-                            <constraint firstItem="RfD-4i-GjF" firstAttribute="top" secondItem="W28-6L-FYP" secondAttribute="bottom" constant="25" id="EEx-ex-gKN"/>
                             <constraint firstItem="RfD-4i-GjF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-2" id="F7L-dW-OOj"/>
                             <constraint firstItem="W28-6L-FYP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IRf-Uj-W0m"/>
                             <constraint firstItem="a4r-E9-nNz" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="NKX-tF-O1y"/>
@@ -188,14 +189,18 @@
                             <constraint firstItem="M2e-b2-1mu" firstAttribute="centerY" secondItem="6wT-sG-PWR" secondAttribute="centerY" id="RUX-dT-h4D"/>
                             <constraint firstItem="W28-6L-FYP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="19" id="X75-JG-AZ8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W28-6L-FYP" secondAttribute="trailing" id="dqd-3W-929"/>
+                            <constraint firstItem="nQV-cE-ljs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-2" id="eBd-pl-AAK"/>
                             <constraint firstItem="M2e-b2-1mu" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="fGw-dM-ZTL"/>
                             <constraint firstItem="DId-e3-MXp" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="fal-UY-bin"/>
                             <constraint firstItem="6wT-sG-PWR" firstAttribute="centerY" secondItem="DId-e3-MXp" secondAttribute="centerY" id="ggp-Ct-Af0"/>
+                            <constraint firstAttribute="trailing" secondItem="nQV-cE-ljs" secondAttribute="trailing" id="gjC-2Z-4f2"/>
                             <constraint firstItem="6wT-sG-PWR" firstAttribute="top" secondItem="RfD-4i-GjF" secondAttribute="bottom" id="imx-8b-1aK"/>
                             <constraint firstItem="a4r-E9-nNz" firstAttribute="leading" secondItem="DId-e3-MXp" secondAttribute="trailing" constant="8" id="q3n-Eg-IsH"/>
+                            <constraint firstItem="nQV-cE-ljs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tzG-58-8mb"/>
                             <constraint firstItem="a4r-E9-nNz" firstAttribute="centerY" secondItem="DId-e3-MXp" secondAttribute="centerY" id="u1p-EQ-DOK"/>
                             <constraint firstAttribute="trailing" secondItem="RfD-4i-GjF" secondAttribute="trailing" id="v58-I7-DPN"/>
                             <constraint firstItem="M2e-b2-1mu" firstAttribute="leading" secondItem="6wT-sG-PWR" secondAttribute="trailing" constant="8" id="wWN-Wn-avO"/>
+                            <constraint firstItem="M2e-b2-1mu" firstAttribute="top" secondItem="nQV-cE-ljs" secondAttribute="bottom" id="yYd-xV-Akv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="ddA-62-oPu">
@@ -206,7 +211,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="barButtonNextPic" destination="PrJ-qd-nng" id="I3g-MA-a1w"/>
                         <outlet property="collectionView" destination="RfD-4i-GjF" id="nLF-c8-LgX"/>
+                        <outlet property="imageViewUnderCollection" destination="nQV-cE-ljs" id="N1i-XE-CZ9"/>
                         <outlet property="lableNumber" destination="ke0-4J-qLy" id="MtU-tR-Vr7"/>
                         <outlet property="lableTeamOne" destination="DId-e3-MXp" id="vxl-od-FgX"/>
                         <outlet property="lableTeamOnePoints" destination="a4r-E9-nNz" id="r0a-lB-Lyo"/>
@@ -241,6 +248,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="plitka.jpg" width="1024" height="904"/>
+        <image name="plitka1.jpg" width="1063" height="1063"/>
     </resources>
 </document>
