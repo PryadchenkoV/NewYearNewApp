@@ -12,7 +12,9 @@ public let arrayOfTheme = ["Советские Фильмы","Известные
 public let kSegueFromMainToCollection = "segueMainToView"
 let kLableOfTableViewCellForMainScreen = "themeCell"
 var teamOneName = ""
+var teamOnePoints = 0
 var teamTwoName = ""
+var teamTwoPoints = 0
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

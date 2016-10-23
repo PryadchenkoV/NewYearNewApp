@@ -24,6 +24,7 @@ extension UIImageView{
 
 class ViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate, UITabBarDelegate {
     
+    @IBOutlet weak var barButtonDifficulty: UIBarButtonItem!
     @IBOutlet weak var barButtonNextPic: UIBarButtonItem!
     @IBOutlet weak var imageViewUnderCollection: UIImageView!
     @IBOutlet weak var lableTeamTwoPoints: UILabel!
@@ -49,8 +50,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pinchRec.addTarget(self, action: "pinchedView:")
-        
+
         lableTeamOne.text = teamOneName
         lableTeamTwo.text = teamTwoName
         randomPlayer()
@@ -74,8 +74,9 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         
     }
     
-    func longPressNextPic() {
-        print("H")
+    
+    @IBAction func buttonDifficultPushed(_ sender: UIBarButtonItem) {
+        showAlertSize()
     }
     
     func makeTeamTextDiffer( whosTurn: UILabel,whosTurnPoints: UILabel, whoWait: UILabel, whoWaitPoints: UILabel) {
@@ -141,7 +142,8 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
     func showAlertWhoWinRound() {
         let alertController = UIAlertController(title: "Победитель Раунда", message: "Выберите команду, которая угадала картинку", preferredStyle: .alert)
         let firstTeam = UIAlertAction(title: teamOneName, style: .default, handler: {(_) in
-            self.lableTeamOnePoints.text = String(Int(self.lableTeamOnePoints.text!)! + self.points)
+            teamOnePoints += self.points
+            self.lableTeamOnePoints.text = String(teamOnePoints)
             switch self.chose {
             case 1: self.points = 25
             case 2: self.points = 100
@@ -150,7 +152,8 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
             }
         })
         let secondTeam = UIAlertAction(title: teamTwoName, style: .default, handler: { (_) in
-            self.lableTeamTwoPoints.text = String(Int(self.lableTeamTwoPoints.text!)! + self.points)
+            teamTwoPoints += self.points
+            self.lableTeamTwoPoints.text = String(teamTwoPoints)
             switch self.chose {
             case 1: self.points = 25
             case 2: self.points = 100
@@ -190,9 +193,11 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         //collectionView.deleteItems(at: collectionView.indexPathsForSelectedItems!)
         
         
+
         if collectionView.alpha == 1 {
             collectionView.alpha = 0
         } else {
+            barButtonDifficulty.isEnabled = true
             if arrayNumPic.count != 0 {
                 showAlertWhoWinRound()
                 print(arrayNumPic)
@@ -209,11 +214,13 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
             } else {
                 let alertController = UIAlertController(title: "Победитель Раунда", message: "Выберите команду, которая угадала картинку", preferredStyle: .alert)
                 let firstTeam = UIAlertAction(title: teamOneName, style: .default, handler: {(_) in
-                    self.lableTeamOnePoints.text = String(Int(self.lableTeamOnePoints.text!)! + self.points)
+                    teamOnePoints += self.points
+                    self.lableTeamOnePoints.text = String(teamOnePoints)
                     self.alertWinner()
                 })
                 let secondTeam = UIAlertAction(title: teamTwoName, style: .default, handler: { (_) in
-                    self.lableTeamTwoPoints.text = String(Int(self.lableTeamTwoPoints.text!)! + self.points)
+                    teamTwoPoints += self.points
+                    self.lableTeamTwoPoints.text = String(teamTwoPoints)
                     self.alertWinner()
                 })
                 alertController.addAction(firstTeam)
@@ -281,6 +288,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        barButtonDifficulty.isEnabled = false
         points -= 1
         print(points)
         collectionView.cellForItem(at: indexPath)?.alpha = 0
