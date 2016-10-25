@@ -55,7 +55,11 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
         lableTeamTwo.text = teamTwoName
         randomPlayer()
         showAlertSize()
-        arrayNumPic += 1...3
+        switch segue {
+            case 0: arrayNumPic += 1...23
+            case 1: arrayNumPic += 1...10
+            default: break
+        }
         print(arrayNumPic)
         numberPic = arrayNumPic[Int(arc4random_uniform(UInt32(arrayNumPic.count)))]
         arrayNumPic.remove(at: numberPic - 1)
@@ -210,7 +214,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
                     i += 1
                 }
                 randomPlayer()
-                print(arrayNumPic)
+                //print(arrayNumPic)
             } else {
                 let alertController = UIAlertController(title: "Победитель Раунда", message: "Выберите команду, которая угадала картинку", preferredStyle: .alert)
                 let firstTeam = UIAlertAction(title: teamOneName, style: .default, handler: {(_) in
@@ -290,7 +294,7 @@ class ViewController: UIViewController, UICollectionViewDataSource,UICollectionV
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         barButtonDifficulty.isEnabled = false
         points -= 1
-        print(points)
+        //print(points)
         collectionView.cellForItem(at: indexPath)?.alpha = 0
         if indexPath == [0,45] && arrayNumber.count == 100 {
             arrayIndex.append(indexPath)
